@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: url('kente-bg.jpg') no-repeat center center fixed;
+      background: url('images/kente-bg.jpg') no-repeat center center fixed;
       background-size: cover;
       padding: 40px;
       color: #fff;
@@ -30,9 +30,10 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
     }
     .logo-box:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
       box-shadow: 0 12px 24px rgba(0,0,0,0.3);
     }
     .logo-box img {
@@ -40,6 +41,10 @@
       height: auto;
       border-radius: 12px;
       border: 1px solid #ccc;
+      transition: transform 0.3s ease;
+    }
+    .logo-box:hover img {
+      transform: scale(1.05);
     }
     .tagline {
       font-style: italic;
@@ -47,6 +52,20 @@
       color: #333;
       font-size: 1em;
       letter-spacing: 0.5px;
+    }
+    .download-btn {
+      margin-top: 12px;
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9em;
+      transition: background-color 0.3s ease;
+    }
+    .download-btn:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
@@ -56,26 +75,30 @@
 
     <!-- Logo 1 -->
     <div class="logo-box">
-      <img src="mt.png" alt="mticket Logo 1">
+      <img src="images/mt.png" alt="mticket Logo 1">
       <div class="tagline">YOUR GLOBAL PASS</div>
+      <a href="images/mt.png" download class="download-btn">Download</a>
     </div>
 
     <!-- Logo 2 -->
     <div class="logo-box">
-      <img src="mt2.png" alt="mticket Logo 2">
+      <img src="images/mt2.png" alt="mticket Logo 2">
       <div class="tagline">YOUR GLOBAL PASS</div>
+      <a href="images/mt2.png" download class="download-btn">Download</a>
     </div>
 
     <!-- Logo 3 -->
     <div class="logo-box">
-      <img src="mt3.png" alt="mticket Logo 3">
+      <img src="images/mt3.png" alt="mticket Logo 3">
       <div class="tagline">YOUR GLOBAL PASS</div>
+      <a href="images/mt3.png" download class="download-btn">Download</a>
     </div>
 
     <!-- Logo 4 -->
     <div class="logo-box">
-      <img src="mt4.png" alt="mticket Logo 4">
+      <img src="images/mt4.png" alt="mticket Logo 4">
       <div class="tagline">YOUR GLOBAL PASS</div>
+      <a href="images/mt4.png" download class="download-btn">Download</a>
     </div>
 
   </div>
