@@ -18,9 +18,10 @@
     }
 
     .logo-container {
-      width: 340px;
-      height: 340px;
+      width: 360px;
+      height: 220px;
       animation: fadeIn 2s ease-out;
+      position: relative;
     }
 
     .logo-svg {
@@ -63,31 +64,33 @@
 </head>
 <body>
   <div class="logo-container">
-    <svg class="logo-svg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo-svg" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="mticketGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="ticketGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#00aaff" />
           <stop offset="100%" stop-color="#ff6600" />
         </linearGradient>
       </defs>
 
-      <!-- Ticket frame -->
-      <rect x="60" y="60" width="220" height="220" rx="20" ry="20" stroke="url(#mticketGlow)" stroke-width="4" fill="none" />
+      <!-- Ticket shape with perforated edges -->
+      <rect x="20" y="20" width="320" height="180" rx="12" ry="12" stroke="url(#ticketGradient)" stroke-width="4" fill="none" />
+      <circle cx="20" cy="110" r="6" fill="#0d0d0d" stroke="#00aaff" stroke-width="2" />
+      <circle cx="340" cy="110" r="6" fill="#0d0d0d" stroke="#ff6600" stroke-width="2" />
 
-      <!-- Diagonal motion beam -->
-      <line x1="80" y1="260" x2="260" y2="80" stroke="url(#mticketGlow)" stroke-width="6" />
+      <!-- Motion beam -->
+      <line x1="40" y1="110" x2="320" y2="110" stroke="url(#ticketGradient)" stroke-width="4" />
 
-      <!-- Central access glyph -->
-      <path d="M140,140 Q170,110 200,140 Q170,170 140,140 Z" fill="url(#mticketGlow)" />
-
-      <!-- Orbit dots -->
-      <circle cx="60" cy="60" r="3" fill="#00aaff" />
-      <circle cx="280" cy="60" r="3" fill="#ff6600" />
-      <circle cx="60" cy="280" r="3" fill="#ff6600" />
-      <circle cx="280" cy="280" r="3" fill="#00aaff" />
+      <!-- Barcode strip -->
+      <rect x="40" y="150" width="280" height="20" fill="#222" />
+      <line x1="50" y1="150" x2="50" y2="170" stroke="#fff" stroke-width="2" />
+      <line x1="60" y1="150" x2="60" y2="170" stroke="#fff" stroke-width="1" />
+      <line x1="70" y1="150" x2="70" y2="170" stroke="#fff" stroke-width="3" />
+      <line x1="80" y1="150" x2="80" y2="170" stroke="#fff" stroke-width="1" />
+      <line x1="90" y1="150" x2="90" y2="170" stroke="#fff" stroke-width="2" />
+      <!-- Add more lines for barcode effect if desired -->
 
       <!-- Brand name -->
-      <text x="170" y="310" text-anchor="middle" font-size="28" font-family="Segoe UI, sans-serif" fill="url(#mticketGlow)" letter-spacing="2">mticket</text>
+      <text x="180" y="90" text-anchor="middle" font-size="32" font-family="Segoe UI, sans-serif" fill="url(#ticketGradient)" letter-spacing="2">mticket</text>
     </svg>
   </div>
   <div class="tagline">Your Global Pass</div>
