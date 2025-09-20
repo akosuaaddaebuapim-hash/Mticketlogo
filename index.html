@@ -60,3 +60,65 @@
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Concept 1: Bold Kente Background</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      display:flex; align-items:center; justify-content:center;
+      height:100vh; background:#eee;
+      font-family:'Poppins',sans-serif;
+    }
+    .logo {
+      text-align:center;
+      color:#111;
+    }
+    .kente-bg {
+      display:inline-flex; align-items:center;
+      padding:16px; background:
+        repeating-linear-gradient(
+          90deg,
+          #E31B23 0 8px,
+          #FCD116 8px 16px,
+          #006B3F 16px 24px,
+          #111    24px 32px
+        );
+      border-radius:8px;
+    }
+    .kente-bg svg.bus {
+      width:64px; height:40px; margin-right:12px;
+      fill:#fff;
+    }
+    .brand { font-size:1.6rem; font-weight:700; margin-top:12px; }
+    .tagline { font-size:0.9rem; color:#555; margin-top:4px; }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <div class="kente-bg">
+      <svg class="bus" viewBox="0 0 64 40" aria-hidden="true">
+        <rect x="2" y="8" width="60" height="24" rx="4"/>
+        <g fill="#fff">
+          <rect x="8" y="12" width="12" height="10" rx="1"/>
+          <rect x="24" y="12" width="12" height="10" rx="1"/>
+          <rect x="40" y="12" width="12" height="10" rx="1"/>
+        </g>
+        <g fill="#ccc">
+          <circle cx="18" cy="36" r="4"/>
+          <circle cx="46" cy="36" r="4"/>
+        </g>
+      </svg>
+      <div class="brand">mticket</div>
+    </div>
+    <div class="tagline">Your Global Pass</div>
+  </div>
+
+</body>
+</html>
+
