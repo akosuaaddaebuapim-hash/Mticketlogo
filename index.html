@@ -2,127 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>mticket 3D Logo</title>
+  <title>mticket Logo</title>
   <style>
-    body { margin: 0; background: #f4f1e9; overflow: hidden; }
-    canvas { display: block; touch-action: none; }
+    body {
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .logo {
+      width: 200px;
+      height: auto;
+    }
+    .text {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      fill: #333;
+    }
   </style>
 </head>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/examples/js/controls/OrbitControls.js"></script>
-
-  <script>
-    let scene, camera, renderer, controls;
-    let lettersGroup;
-
-    // Initialize the 3D scene
-    function init() {
-      // Scene
-      scene = new THREE.Scene();
-      scene.background = new THREE.Color('#f4f1e9');
-
-      // Camera
-      camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.set(0, 0, 100);
-
-      // Renderer
-      renderer = new THREE.WebGLRenderer({ antialias: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
-
-      // Controls
-      controls = new THREE.OrbitControls(camera, renderer.domElement);
-      controls.enableDamping = true;
-      controls.dampingFactor = 0.1;
-      controls.enableZoom = true;
-      controls.enablePan = true;
-      controls.enableRotate = true;
-      controls.touches = {
-        ONE: THREE.TOUCH.ROTATE,
-        TWO: THREE.TOUCH.DOLLY_PAN
-      };
-
-      // Lighting
-      const light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(0, 0, 100);
-      scene.add(light);
-      const ambient = new THREE.AmbientLight(0x888888);
-      scene.add(ambient);
-
-      // Create letters and add to a group
-      lettersGroup = new THREE.Group();
-      scene.add(lettersGroup);
-
-      const material = new THREE.MeshStandardMaterial({ color: 0x5c4b3b, metalness: 0.6, roughness: 0.4 });
-
-      // M shape
-      const leftBar = new THREE.Mesh(new THREE.BoxGeometry(5, 20, 5), material);
-      leftBar.position.set(-20, 0, 0);
-      lettersGroup.add(leftBar);
-
-      const rightBar = new THREE.Mesh(new THREE.BoxGeometry(5, 20, 5), material);
-      rightBar.position.set(-10, 0, 0);
-      lettersGroup.add(rightBar);
-
-      const middleVLeft = new THREE.Mesh(new THREE.BoxGeometry(5, 10, 5), material);
-      middleVLeft.rotation.z = Math.PI / 6;
-      middleVLeft.position.set(-17.5, -2, 0);
-      lettersGroup.add(middleVLeft);
-
-      const middleVRight = new THREE.Mesh(new THREE.BoxGeometry(5, 10, 5), material);
-      middleVRight.rotation.z = -Math.PI / 6;
-      middleVRight.position.set(-12.5, -2, 0);
-      lettersGroup.add(middleVRight);
-
-      // T shape
-      const vertical = new THREE.Mesh(new THREE.BoxGeometry(5, 20, 5), material);
-      vertical.position.set(10, 0, 0);
-      lettersGroup.add(vertical);
-
-      const horizontal = new THREE.Mesh(new THREE.BoxGeometry(15, 5, 5), material);
-      horizontal.position.set(10, 10, 0);
-      lettersGroup.add(horizontal);
-
-      lettersGroup.position.z = -50;
-
-      animate();
-    }
-
-    // Animation loop
-    function animate() {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    }
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-      if (camera && renderer) {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      }
-    });
-
-    // Handle WebGL context loss and restoration
-    renderer.domElement.addEventListener('webglcontextlost', (event) => {
-      event.preventDefault();
-      console.log('WebGL context lost. Restoring...');
-      // You can display a message to the user here.
-    }, false);
-
-    renderer.domElement.addEventListener('webglcontextrestored', () => {
-      console.log('WebGL context restored. Rebuilding scene.');
-      // Remove old canvas and restart the scene
-      if (renderer.domElement.parentNode) {
-        renderer.domElement.parentNode.removeChild(renderer.domElement);
-      }
-      init(); // Reinitialize the entire scene
-    }, false);
-
-    // Initial call to start the scene
-    init();
-  </script>
+  <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Ticket shape -->
+    <rect x="20" y="60" width="160" height="80" rx="10" ry="10" fill="#00aaff" />
+    <!-- Pin shape -->
+    <path d="M100,40 a20,20 0 1,1 0.1,0 z M100,40 l0,60" fill="#ff6600" />
+    <!-- Text -->
+    <text x="50%" y="130" text-anchor="middle" class="text">mticket</text>
+  </svg>
 </body>
 </html>
