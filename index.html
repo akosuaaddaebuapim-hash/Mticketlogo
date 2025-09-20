@@ -47,10 +47,15 @@
     rightBar.position.set(-10, 0, 0);
     scene.add(rightBar);
 
-    const middleV = new THREE.Mesh(new THREE.BoxGeometry(5, 20, 5), material);
-    middleV.rotation.z = Math.PI / 4;
-    middleV.position.set(-15, -5, 0);
-    scene.add(middleV);
+    const middleVLeft = new THREE.Mesh(new THREE.BoxGeometry(5, 10, 5), material);
+    middleVLeft.rotation.z = Math.PI / 6;
+    middleVLeft.position.set(-17.5, -2, 0);
+    scene.add(middleVLeft);
+
+    const middleVRight = new THREE.Mesh(new THREE.BoxGeometry(5, 10, 5), material);
+    middleVRight.rotation.z = -Math.PI / 6;
+    middleVRight.position.set(-12.5, -2, 0);
+    scene.add(middleVRight);
 
     // T shape
     const vertical = new THREE.Mesh(new THREE.BoxGeometry(5, 20, 5), material);
