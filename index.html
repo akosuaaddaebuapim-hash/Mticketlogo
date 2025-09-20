@@ -2,66 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>mticket Logo</title>
+  <title>mticket | Your Global Pass</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-      background: #1a1a1a;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    /* Reset and base styles */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #1a1a1a;
       font-family: 'Georgia', serif;
       color: #d4c2a5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    .logo {
-      width: 260px;
-      height: auto;
-      cursor: pointer;
+    .logo-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .logo-svg {
+      width: 100%;
+      height: 100%;
       transition: transform 0.3s ease;
+      animation: pulse 3s infinite;
     }
 
-    .logo:hover {
+    .logo-svg:hover {
       transform: scale(1.05);
     }
 
-    .text {
-      font-size: 28px;
-      font-weight: bold;
-      fill: url(#vintageGrad);
-      font-family: 'Georgia', serif;
-      letter-spacing: 1px;
-    }
-
     .tagline {
-      margin-top: 10px;
-      font-size: 13px;
+      margin-top: 20px;
+      font-size: 14px;
       color: #b8a57a;
       font-style: italic;
-      text-transform: uppercase;
       letter-spacing: 1px;
+      text-transform: uppercase;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    @keyframes pulse {
+      0% { filter: drop-shadow(0 0 0px #d4c2a5); }
+      50% { filter: drop-shadow(0 0 10px #d4c2a5); }
+      100% { filter: drop-shadow(0 0 0px #d4c2a5); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <svg class="logo" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="vintageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#d4c2a5" />
-        <stop offset="100%" stop-color="#b8a57a" />
-      </linearGradient>
-    </defs>
+  <div class="logo-container">
+    <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="vintageGold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#d4c2a5" />
+          <stop offset="100%" stop-color="#b8a57a" />
+        </linearGradient>
+      </defs>
 
-    <!-- Fused "m" and "t" monogram -->
-    <path d="M60,140 L60,80 Q60,60 80,60 Q100,60 100,80 L100,140 M80,60 L80,140 M130,60 L130,140 M130,60 Q130,50 150,50 Q170,50 170,60 L170,140" stroke="#d4c2a5" stroke-width="5" fill="none" />
-    <!-- Decorative circle -->
-    <circle cx="130" cy="100" r="85" stroke="#b8a57a" stroke-width="2" fill="none" />
+      <!-- Outer circle frame -->
+      <circle cx="150" cy="150" r="140" stroke="#b8a57a" stroke-width="4" fill="none" />
 
-    <!-- Brand text -->
-    <text x="130" y="180" text-anchor="middle" class="text">mticket</text>
-  </svg>
+      <!-- Fused "m" and "t" monogram -->
+      <!-- Left arch of "m" -->
+      <path d="M80,200 L80,120 Q80,100 100,100 Q120,100 120,120 L120,200" stroke="url(#vintageGold)" stroke-width="6" fill="none" />
+      <!-- Right arch of "m" -->
+      <path d="M120,120 Q120,100 140,100 Q160,100 160,120 L160,200" stroke="url(#vintageGold)" stroke-width="6" fill="none" />
+      <!-- Vertical "t" beam -->
+      <line x1="190" y1="80" x2="190" y2="200" stroke="url(#vintageGold)" stroke-width="6" />
+      <!-- "t" head -->
+      <line x1="175" y1="80" x2="205" y2="80" stroke="url(#vintageGold)" stroke-width="6" />
+
+      <!-- Decorative stars -->
+      <circle cx="60" cy="60" r="3" fill="#b8a57a" />
+      <circle cx="240" cy="60" r="3" fill="#b8a57a" />
+      <circle cx="60" cy="240" r="3" fill="#b8a57a" />
+      <circle cx="240" cy="240" r="3" fill="#b8a57a" />
+
+      <!-- Brand name -->
+      <text x="150" y="260" text-anchor="middle" font-size="28" font-family="Georgia, serif" fill="url(#vintageGold)" letter-spacing="1">mticket</text>
+    </svg>
+  </div>
   <div class="tagline">Your Global Pass</div>
 </body>
 </html>
+
