@@ -5,67 +5,62 @@
   <title>mticket Logo</title>
   <style>
     body {
-      background: #0a0a0a;
+      background: #1a1a1a;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: #ccc;
+      font-family: 'Georgia', serif;
+      color: #d4c2a5;
     }
 
     .logo {
-      width: 240px;
+      width: 260px;
       height: auto;
       cursor: pointer;
-      animation: glow 2s ease-in-out infinite;
       transition: transform 0.3s ease;
     }
 
     .logo:hover {
-      transform: scale(1.08) rotate(-1deg);
+      transform: scale(1.05);
     }
 
     .text {
       font-size: 28px;
       font-weight: bold;
-      fill: url(#gradText);
+      fill: url(#vintageGrad);
+      font-family: 'Georgia', serif;
+      letter-spacing: 1px;
     }
 
     .tagline {
-      margin-top: 12px;
+      margin-top: 10px;
       font-size: 13px;
-      color: #888;
-      letter-spacing: 1px;
+      color: #b8a57a;
+      font-style: italic;
       text-transform: uppercase;
-    }
-
-    @keyframes glow {
-      0% { filter: drop-shadow(0 0 0px #00ffff); }
-      50% { filter: drop-shadow(0 0 10px #00ffff); }
-      100% { filter: drop-shadow(0 0 0px #00ffff); }
+      letter-spacing: 1px;
     }
   </style>
 </head>
 <body>
-  <svg class="logo" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+  <svg class="logo" viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <linearGradient id="gradText" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#00ffff" />
-        <stop offset="100%" stop-color="#0044ff" />
+      <linearGradient id="vintageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#d4c2a5" />
+        <stop offset="100%" stop-color="#b8a57a" />
       </linearGradient>
     </defs>
 
     <!-- Fused "m" and "t" monogram -->
-    <path d="M60,140 L60,80 Q60,60 80,60 L100,60 Q120,60 120,80 L120,140 M90,60 L90,140" stroke="#00ffff" stroke-width="6" fill="none" />
-    <!-- The vertical "t" beam piercing through -->
-    <line x1="150" y1="40" x2="150" y2="140" stroke="#00ffff" stroke-width="6" />
-    <circle cx="150" cy="40" r="8" fill="#00ffff" />
+    <path d="M60,140 L60,80 Q60,60 80,60 Q100,60 100,80 L100,140 M80,60 L80,140 M130,60 L130,140 M130,60 Q130,50 150,50 Q170,50 170,60 L170,140" stroke="#d4c2a5" stroke-width="5" fill="none" />
+    <!-- Decorative circle -->
+    <circle cx="130" cy="100" r="85" stroke="#b8a57a" stroke-width="2" fill="none" />
 
     <!-- Brand text -->
-    <text x="120" y="180" text-anchor="middle" class="text">mticket</text>
+    <text x="130" y="180" text-anchor="middle" class="text">mticket</text>
   </svg>
   <div class="tagline">Your Global Pass</div>
 </body>
