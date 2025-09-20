@@ -2,72 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>mticket Vintage Logo</title>
+  <title>mticket 3D Logo</title>
   <style>
     body {
-      background-color: #f4f1e9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      background-color: #f4f1e9;
+      overflow: hidden;
     }
-
-    .logo-container {
-      background: linear-gradient(135deg, #fffbe6, #e0d4b7);
-      border: 3px dashed #5c4b3b;
-      border-radius: 16px;
-      padding: 50px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.15);
-      text-align: center;
-      font-family: 'Georgia', serif;
-    }
-
-    .monogram {
-      font-size: 64px;
-      font-weight: bold;
-      color: #5c4b3b;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      position: relative;
-    }
-
-    .monogram::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background-color: #7a6a58;
-    }
-
-    .monogram::after {
-      content: 'mticket';
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 18px;
-      color: #7a6a58;
-      font-style: italic;
-      letter-spacing: 1px;
-    }
-
-    svg {
-      margin-top: 30px;
+    canvas {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <div class="monogram">MT</div>
-    <svg width="100" height="100" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="45" stroke="#5c4b3b" stroke-width="3" fill="#e0d4b7" />
-      <path d="M35 50 L50 35 L65 50 L50 65 Z" fill="#5c4b3b" />
-      <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="10" fill="#fff">ticket</text>
-    </svg>
-  </div>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/examples/js/loaders/FontLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/examples/js/geometries/TextGeometry.js"></script>
+
+  <script>
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#f4f1e9');
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 100;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(0, 0, 100).normalize();
+    scene.add(light);
+
+    const ambient = new THREE.AmbientLight(0x888888);
+    scene.add(ambient);
+
+    const loader = new THREE.FontLoader();
+    loader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', function (font) {
+      const textGeo = new THREE.TextGeometry('MT', {
+        font: font,
+        size: 20,
+        height: 5,
+        curveSegments: 12,
+        bevelEnabled: true,
+        bevelThickness: 1,
+        bevelSize: 1,
+        bevelSegments: 3
+      });
+
+      const material = new THREE.MeshStandardMaterial({ color: 0x5c4b3b, metalness: 0.6, roughness: 0.4 });
+      const textMesh = new THREE.Mesh(textGeo, material);
+      textMesh.position.set(-20, -10, 0);
+      scene.add(textMesh);
+
+      animate();
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+      scene.rotation.y += 0.005;
+      renderer.render(scene, camera);
+    }
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 </body>
 </html>
