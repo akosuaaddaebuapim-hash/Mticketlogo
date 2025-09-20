@@ -14,45 +14,58 @@
     }
 
     .logo-container {
-      background: radial-gradient(circle at center, #fffbe6 0%, #e0d4b7 100%);
-      border: 4px solid #5c4b3b;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, #fffbe6, #e0d4b7);
+      border: 3px dashed #5c4b3b;
+      border-radius: 16px;
+      padding: 50px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
       text-align: center;
       font-family: 'Georgia', serif;
     }
 
-    .logo-text {
-      font-size: 48px;
+    .monogram {
+      font-size: 64px;
+      font-weight: bold;
       color: #5c4b3b;
-      letter-spacing: 2px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       position: relative;
     }
 
-    .logo-text::after {
-      content: 'Est. 2025';
+    .monogram::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: #7a6a58;
+    }
+
+    .monogram::after {
+      content: 'mticket';
       position: absolute;
       bottom: -30px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 16px;
+      font-size: 18px;
       color: #7a6a58;
       font-style: italic;
+      letter-spacing: 1px;
     }
 
     svg {
-      margin-top: 20px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
   <div class="logo-container">
-    <div class="logo-text">mticket</div>
-    <svg width="120" height="120" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="45" stroke="#5c4b3b" stroke-width="4" fill="#e0d4b7" />
-      <path d="M30 50 L50 30 L70 50 L50 70 Z" fill="#5c4b3b" />
+    <div class="monogram">MT</div>
+    <svg width="100" height="100" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="45" stroke="#5c4b3b" stroke-width="3" fill="#e0d4b7" />
+      <path d="M35 50 L50 35 L65 50 L50 65 Z" fill="#5c4b3b" />
       <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="10" fill="#fff">ticket</text>
     </svg>
   </div>
