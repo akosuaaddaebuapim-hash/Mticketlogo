@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,27 +11,48 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
+
     .logo {
-      width: 200px;
+      width: 220px;
       height: auto;
+      cursor: pointer;
+      animation: bounce 1s ease-out;
+      transition: transform 0.3s ease;
     }
+
+    .logo:hover {
+      transform: scale(1.1) rotate(-2deg);
+    }
+
     .text {
       font-family: 'Segoe UI', sans-serif;
       font-size: 24px;
       font-weight: bold;
       fill: #333;
+      transition: fill 0.3s ease;
+    }
+
+    .logo:hover .text {
+      fill: #ff6600;
+    }
+
+    @keyframes bounce {
+      0%   { transform: translateY(-30px); opacity: 0; }
+      50%  { transform: translateY(10px); opacity: 1; }
+      100% { transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <!-- Ticket shape -->
-    <rect x="20" y="60" width="160" height="80" rx="10" ry="10" fill="#00aaff" />
-    <!-- Pin shape -->
-    <path d="M100,40 a20,20 0 1,1 0.1,0 z M100,40 l0,60" fill="#ff6600" />
+  <svg class="logo" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- "m" as ticket stub -->
+    <path d="M30,80 Q30,60 50,60 L70,60 Q90,60 90,80 L90,140 Q90,160 70,160 L50,160 Q30,160 30,140 Z" fill="#00aaff" />
+    <!-- "t" as location pin -->
+    <path d="M130,60 Q130,40 150,40 Q170,40 170,60 Q170,80 150,120 Q130,80 130,60 Z M150,60 L150,140" fill="#ff6600" />
     <!-- Text -->
-    <text x="50%" y="130" text-anchor="middle" class="text">mticket</text>
+    <text x="110" y="180" text-anchor="middle" class="text">mticket</text>
   </svg>
 </body>
 </html>
