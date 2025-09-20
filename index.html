@@ -3,83 +3,55 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>mticket – Your Global Pass</title>
+  <title>Concept 7: Diagonal Kente & Bus</title>
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #f5f7fa;
-      font-family: 'Montserrat', sans-serif;
+      display:flex; align-items:center; justify-content:center;
+      height:100vh; background:#f5f5f5;
+      font-family:'Poppins',sans-serif;
     }
-
-    /* Logo Container */
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    .canvas {
+      position:relative; width:320px; height:160px;
+      background:#fff; overflow:hidden; border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
     }
-
-    /* Bus Icon */
-    .logo svg.bus {
-      width: 64px;
-      height: 40px;
-      fill: #FFC107;
+    .kente {
+      position:absolute; width:400px; height:80px;
+      top:40px; left:-40px;
+      background:repeating-linear-gradient(
+        0deg,
+        #E31B23 0 8px,
+        #FCD116 8px 16px,
+        #006B3F 16px 24px,
+        #111    24px 32px
+      );
+      transform:rotate(-20deg);
     }
-    .logo svg.bus .windows {
-      fill: #FFFFFF;
+    .bus {
+      position:absolute; left:30px; top:30px;
     }
-    .logo svg.bus .wheels {
-      fill: #333;
-    }
-
-    /* Wordmark + Tagline */
+    svg.bus { width:80px; height:50px; fill:#333; }
     .text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
+      position:absolute; bottom:12px; left:50%;
+      transform:translateX(-50%); text-align:center;
+      color:#111;
     }
-    .text .brand {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #22356F;
-    }
-    .text .tagline {
-      margin-top: 4px;
-      font-size: 1rem;
-      font-weight: 400;
-      color: #555;
-    }
+    .brand { font-size:1.6rem; font-weight:700; }
+    .tagline { font-size:0.85rem; color:#555; margin-top:4px;}
   </style>
 </head>
 <body>
 
-  <div class="logo">
-    <!-- Simple Bus SVG -->
-    <svg class="bus" viewBox="0 0 64 40" aria-hidden="true" role="img">
-      <!-- body -->
-      <rect x="2" y="8" width="60" height="24" rx="4"/>
-      <!-- windows -->
-      <g class="windows">
-        <rect x="6"  y="12" width="12" height="10" rx="1"/>
-        <rect x="20" y="12" width="12" height="10" rx="1"/>
-        <rect x="34" y="12" width="12" height="10" rx="1"/>
-        <rect x="48" y="12" width="8"  height="10" rx="1"/>
-      </g>
-      <!-- wheels -->
-      <g class="wheels">
-        <circle cx="16" cy="36" r="4"/>
-        <circle cx="48" cy="36" r="4"/>
-      </g>
-    </svg>
-
+  <div class="canvas">
+    <div class="kente"></div>
+    <div class="bus">
+      <svg viewBox="0 0 64 40" aria-hidden="true">
+        <rect x="2" y="8" width="60" height="24" rx="4"/>
+        <circle cx="18" cy="36" r="4"/>
+        <circle cx="46" cy="36" r="4"/>
+      </svg>
+    </div>
     <div class="text">
       <div class="brand">mticket</div>
       <div class="tagline">Your Global Pass</div>
