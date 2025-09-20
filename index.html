@@ -3,101 +3,202 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>mticket Logo Demo</title>
+  <title>mticket Logo Concepts</title>
   <style>
-    /* Base reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* Global Reset & Layout */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #f5f7fa;
-      font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      padding: 2rem;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    section {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .tagline {
+      display: block;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
     }
 
-    /* Logo container */
-    .mticket-logo {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      background: linear-gradient(135deg, #006dff 0%, #00baff 100%);
-      color: #ffffff;
-      padding: 12px 24px 12px 48px;
-      clip-path: polygon(
-        0%   0%,
-        90%  0%,
-        100% 25%,
-        100% 75%,
-        90%  100%,
-        0%   100%,
-        10%  75%,
-        10%  25%
-      );
-      transition: transform 0.3s ease;
+    /* Concept 1: Digital Stripes */
+    .logo-1 {
+      display: inline-flex; align-items: center;
+      background: #0052CC; color: #fff;
+      padding: 8px 16px; font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 700;
+    }
+    .logo-1 .stripes { display: flex; margin-right: 8px; }
+    .logo-1 .stripes span {
+      width: 4px; height: 24px; background: #fff; margin: 0 1px;
+    }
+    .logo-1 .text { font-size: 1.5rem; }
+    .logo-1 .tagline { opacity: 0.8; margin-left: 8px; }
+
+    /* Concept 2: Hidden Arrow */
+    .logo-2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 2rem; position: relative; color: #6600CC;
+    }
+    .logo-2 .ticket { color: #FF6600; position: relative; }
+    .logo-2 .ticket::after {
+      content: '';
+      position: absolute; right: -8px; top: 50%;
+      width: 12px; height: 12px;
+      border-top: 2px solid #FF6600;
+      border-right: 2px solid #FF6600;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .logo-2 .tagline {
+      content: 'Your Global Pass';
+      position: absolute; left: 0; bottom: -1.6rem;
+      font-size: 0.8rem; color: #888;
     }
 
-    .mticket-logo:hover {
-      transform: scale(1.05);
+    /* Concept 3: Loop */
+    .logo-3 { display: flex; align-items: center; }
+    .logo-3 svg {
+      width: 40px; height: 40px; margin-right: 8px;
+      stroke: #FF5A5F; stroke-width: 10; fill: none;
     }
+    .logo-3 .text { font-family: 'Circular Std', sans-serif; font-weight: 500; font-size: 1.4rem; color: #333; }
+    .logo-3 .tagline { font-size: 0.75rem; color: #777; }
 
-    /* Transport icon as faded overlay */
-    .mticket-logo .transport-icon {
-      position: absolute;
-      left: 16px;
-      width: 32px;
-      height: 32px;
-      opacity: 0.3;
+    /* Concept 4: Wing Emblem */
+    .logo-4 {
+      display: inline-flex; align-items: center;
+      background: #003366; padding: 8px 16px; color: #fff;
+      font-family: 'Futura', sans-serif; font-weight: 700; border-radius: 4px;
     }
+    .logo-4 .wing {
+      width: 24px; height: 24px; background: #FFCC00;
+      clip-path: polygon(0 0,100% 50%,0 100%); margin-right: 8px;
+    }
+    .logo-4 .text { font-size: 1.6rem; }
+    .logo-4 .tagline { opacity: 0.9; margin-left: 8px; }
 
-    /* Brand text styling */
-    .mticket-logo .brand-text {
-      font-size: 1.8rem;
-      letter-spacing: -0.02em;
+    /* Concept 5: Global Dot */
+    .logo-5 {
+      position: relative; font-family: 'Helvetica Neue', sans-serif;
+      font-weight: 500; font-size: 2rem; color: #333;
     }
+    .logo-5::after {
+      content: '';
+      position: absolute; top: 0; right: -28px;
+      width: 12px; height: 12px; background: #E60012;
+      border-radius: 50%;
+    }
+    .logo-5 .tagline { font-size: 0.75rem; color: #555; margin-top: 0.5rem; }
 
-    .mticket-logo .brand-text span {
-      font-weight: 600;
+    /* Concept 6: Monochrome Globe */
+    .logo-6 { display: flex; align-items: center; font-family: 'Gotham', sans-serif; }
+    .logo-6 .globe {
+      width: 32px; height: 32px; border: 2px solid #000;
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; margin-right: 8px;
     }
+    .logo-6 .globe::after {
+      content: ''; width: 12px; height: 2px; background: #000;
+    }
+    .logo-6 .text { font-size: 1.5rem; }
+    .logo-6 .tagline { opacity: 0.6; margin-left: 8px; font-size: 0.75rem; }
 
-    /* Responsive scaling via CSS variable */
-    :root {
-      --logo-scale: 1;
-    }
-
-    @media (max-width: 768px) {
-      :root {
-        --logo-scale: 0.8;
-      }
-    }
-
-    @media (max-width: 480px) {
-      :root {
-        --logo-scale: 0.6;
-      }
-    }
-
-    .mticket-logo {
-      transform: scale(var(--logo-scale));
-    }
+    /* Concept 7: Multicolor M */
+    .logo-7 { display: inline-flex; align-items: center; font-family: 'Product Sans', sans-serif; }
+    .logo-7 .letter-m { display: flex; font-size: 2rem; margin-right: 8px; }
+    .logo-7 .letter-m span { width: 0.5em; display: inline-block; }
+    .logo-7 .blue { color: #4285F4; }
+    .logo-7 .red { color: #DB4437; }
+    .logo-7 .yellow { color: #F4B400; }
+    .logo-7 .green { color: #0F9D58; }
+    .logo-7 .text { font-size: 1.5rem; color: #333; }
+    .logo-7 .tagline { font-size: 0.75rem; color: #666; margin-left: 8px; }
   </style>
 </head>
 <body>
 
-  <div class="mticket-logo">
-    <svg class="transport-icon" viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M8 16h48v32H8z" fill="none"/>
-      <path d="M16 32h32" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="20" cy="44" r="4" fill="#fff"/>
-      <circle cx="44" cy="44" r="4" fill="#fff"/>
-    </svg>
-    <span class="brand-text">m<span>ticket</span></span>
-  </div>
+  <section>
+    <h2>Concept 1: Digital Stripes</h2>
+    <div class="logo-1">
+      <div class="stripes">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="text">m<span>ticket</span></div>
+      <div class="tagline">Your Global Pass</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Concept 2: Hidden Arrow</h2>
+    <div class="logo-2">
+      mticket<span class="ticket"></span>
+      <span class="tagline">Your Global Pass</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Concept 3: Loop</h2>
+    <div class="logo-3">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50"/>
+      </svg>
+      <div>
+        <div class="text">m<span>ticket</span></div>
+        <div class="tagline">Your Global Pass</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Concept 4: Wing Emblem</h2>
+    <div class="logo-4">
+      <div class="wing"></div>
+      <div class="text">m<span>ticket</span></div>
+      <div class="tagline">Your Global Pass</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Concept 5: Global Dot</h2>
+    <div class="logo-5">
+      m<span>ticket</span>
+      <div class="tagline">Your Global Pass</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Concept 6: Monochrome Globe</h2>
+    <div class="logo-6">
+      <div class="globe"></div>
+      <div class="text">m<span>ticket</span></div>
+      <div class="tagline">Your Global Pass</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Concept 7: Multicolor M</h2>
+    <div class="logo-7">
+      <div class="letter-m">
+        <span class="blue">m</span><span class="red">t</span>
+        <span class="yellow">i</span><span class="green">c</span>
+        <span>k</span><span>e</span><span>t</span>
+      </div>
+      <div class="text">icket</div>
+      <div class="tagline">Your Global Pass</div>
+    </div>
+  </section>
 
 </body>
 </html>
