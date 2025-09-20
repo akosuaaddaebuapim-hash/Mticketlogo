@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
-      background-color: #121212;
-      font-family: 'Georgia', serif;
-      color: #d4c2a5;
+      background-color: #0d0d0d;
+      font-family: 'Segoe UI', sans-serif;
+      color: #ccc;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -18,9 +18,8 @@
     }
 
     .logo-container {
-      position: relative;
-      width: 340px;
-      height: 340px;
+      width: 320px;
+      height: 320px;
       animation: fadeIn 2s ease-out;
     }
 
@@ -64,34 +63,31 @@
 </head>
 <body>
   <div class="logo-container">
-    <svg class="logo-svg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="mticketGold" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#d4c2a5" />
-          <stop offset="100%" stop-color="#b8a57a" />
+        <linearGradient id="mticketGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00aaff" />
+          <stop offset="100%" stop-color="#ff6600" />
         </linearGradient>
       </defs>
 
       <!-- Outer circle frame -->
-      <circle cx="170" cy="170" r="150" stroke="#00aaff" stroke-width="4" fill="none" />
+      <circle cx="160" cy="160" r="140" stroke="url(#mticketGlow)" stroke-width="4" fill="none" />
 
-      <!-- Fused "m" with embedded "t" -->
-      <!-- Left arch of "m" -->
-      <path d="M80,240 L80,130 Q80,110 100,110 Q120,110 120,130 L120,240" stroke="url(#mticketGold)" stroke-width="6" fill="none" />
-      <!-- Right arch of "m" -->
-      <path d="M160,240 L160,130 Q160,110 180,110 Q200,110 200,130 L200,240" stroke="url(#mticketGold)" stroke-width="6" fill="none" />
-      <!-- "t" embedded in center -->
-      <line x1="140" y1="90" x2="140" y2="240" stroke="#ff6600" stroke-width="6" />
-      <line x1="120" y1="90" x2="160" y2="90" stroke="#ff6600" stroke-width="6" />
+      <!-- Diagonal beam -->
+      <line x1="80" y1="240" x2="240" y2="80" stroke="url(#mticketGlow)" stroke-width="6" />
 
-      <!-- Decorative stars -->
+      <!-- Central portal glyph -->
+      <path d="M130,130 Q160,100 190,130 Q160,160 130,130 Z" fill="url(#mticketGlow)" />
+
+      <!-- Decorative orbit dots -->
       <circle cx="60" cy="60" r="3" fill="#00aaff" />
-      <circle cx="280" cy="60" r="3" fill="#00aaff" />
-      <circle cx="60" cy="280" r="3" fill="#00aaff" />
-      <circle cx="280" cy="280" r="3" fill="#00aaff" />
+      <circle cx="260" cy="60" r="3" fill="#ff6600" />
+      <circle cx="60" cy="260" r="3" fill="#ff6600" />
+      <circle cx="260" cy="260" r="3" fill="#00aaff" />
 
       <!-- Brand name -->
-      <text x="170" y="300" text-anchor="middle" font-size="28" font-family="Georgia, serif" fill="url(#mticketGold)" letter-spacing="1">mticket</text>
+      <text x="160" y="300" text-anchor="middle" font-size="28" font-family="Segoe UI, sans-serif" fill="url(#mticketGlow)" letter-spacing="2">mticket</text>
     </svg>
   </div>
   <div class="tagline">Your Global Pass</div>
